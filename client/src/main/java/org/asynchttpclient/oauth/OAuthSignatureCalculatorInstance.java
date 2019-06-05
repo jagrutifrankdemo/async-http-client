@@ -61,6 +61,14 @@ public class OAuthSignatureCalculatorInstance {
   public OAuthSignatureCalculatorInstance() throws NoSuchAlgorithmException {
     mac = Mac.getInstance(HMAC_SHA1_ALGORITHM);
   }
+  
+  //Support HMACSHA256
+   public OAuthSignatureCalculatorInstance(String oauthSignatureMethod ) throws NoSuchAlgorithmException {
+     if (oauthSignatureMethod.equals HmacSHA256)
+       mac = Mac.getInstance("HmacSHA26);
+     else
+        mac = Mac.getInstance(HMAC_SHA1_ALGORITHM);   
+  }
 
   public String computeAuthorizationHeader(ConsumerKey consumerAuth,
                                            RequestToken userAuth,
